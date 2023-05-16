@@ -15,11 +15,6 @@ def about():
 def recipe(id):
   return render_template("recipe.html", template_recipe=recipes[id], template_description=descriptions[id], template_ingredients=ingredients[id], template_instructions=instructions[id])
 
-# This call will be used with Gunicorn server
-#server = app.server
-
 # Testing server, don't use in production, host
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8050, debug=True)
-else:
-    gunicorn_app = app()
+#if __name__ == "__main__":
+#    app.run(host='0.0.0.0', port=8050, debug=True)
