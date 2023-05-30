@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
 from helper import recipes, descriptions, ingredients, instructions
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "mysecret"
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
   new_id = len(recipes) + 1
   if len(request.form) > 0:
